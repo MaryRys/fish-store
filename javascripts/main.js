@@ -48,6 +48,12 @@
         });
     };
 
+$("#show-sale").click(() => {
+    // alert('sale fish');
+    // grab all the divs with class= 'fish', give only the ones without class= 'on-sale' and HIDE
+    $(".fish").not(".on-sale").toggle();
+})
+
   // Load Fish
 $.get('../db/fishes.json')
 .done((data) => {
