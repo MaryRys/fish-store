@@ -52,7 +52,15 @@ $("#show-sale").click(() => {
     // alert('sale fish');
     // grab all the divs with class= 'fish', give only the ones without class= 'on-sale' and HIDE
     $(".fish").not(".on-sale").toggle();
-})
+    $("#show-sale").text((i, text) => {
+        if (text === "Show Sale Fish") {
+            return "Show All"
+        } else {
+            return "Show Sale Fish";
+        }
+        // could also use turnary operator 'return (text === "Show Sale Fish") ? 'Show All' : 'Show Sale Fish'
+    });
+});
 
   // Load Fish
 $.get('../db/fishes.json')
