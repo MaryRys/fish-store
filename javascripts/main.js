@@ -25,16 +25,26 @@
     // Write to the available Div
     $("#available").append(domString);
     bindEvents ();
+    removeFish();
     };
 
     const bindEvents = () => {
-        $(".add").on('click', (e) => {
+        $('body').on('click', 'button.add', (e) => {
             //  what is the div that has the fish
             const fishToMove = $(e.target).closest('.fish');
             // move it to the 'snagged' div
             $('#snagged').append(fishToMove);
             // button text => remove from basket | change class - 'add' + 'remove'
             $(e.target).text('Remove from Basket').addClass('remove').removeClass('add');
+        });
+    }
+
+    // remove fishes
+    const removeFish = () => {
+        $('body').on('click', 'button.remove', (e) => {
+            const fishToMove = $(e.target).closest('.fish');
+            $('#available').append(fishToMove);
+            $(e.target).text('Add To Basket').addClass('add').removeClass('remove');
         });
     };
 
